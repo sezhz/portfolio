@@ -1,0 +1,58 @@
+@use "../global/boilerplate" as *;
+
+.mobile-nav {
+  align-items: center;
+  background-color: #fff;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  transition: all 0.4s ease-in-out;
+  width: 100%;
+  z-index: 300;
+  transform: translateY(-100%);
+  opacity: 0;
+
+  &.open-menu {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+
+  span {
+    cursor: pointer;
+    font-size: 3rem;
+    position: absolute;
+    right: 4rem;
+    top: 2rem;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    font-size: 2.4rem;
+    gap: 4rem;
+    list-style: none;
+
+    a {
+      color: #000;
+      font-weight: 500;
+      text-decoration: none;
+    }
+  }
+
+  &.dark-mode {
+    background-color: #333333;
+
+    i,
+    a {
+      color: #dde0e7;
+    }
+  }
+}

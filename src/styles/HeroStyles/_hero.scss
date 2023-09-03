@@ -1,0 +1,247 @@
+@use "../global/boilerplate" as *;
+
+.hero {
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  transition: background-color 0.5s, color 0.5s;
+
+  @media (max-width: 900px) {
+    height: auto;
+    padding: 11rem 0;
+  }
+
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10rem;
+    height: 80rem;
+    position: relative;
+
+    @media (max-width: 460px) {
+      flex-direction: column;
+      gap: 3rem;
+      text-align: center;
+      height: auto;
+    }
+  }
+
+  .hero-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10rem;
+    position: relative;
+
+    @media (max-width: 900px) {
+      flex-direction: column-reverse;
+      text-align: center;
+      gap: 3rem;
+      height: auto;
+    }
+  }
+
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    max-width: 50rem;
+    position: relative;
+
+    h1 {
+      color: #2d2e32;
+      font-size: 5.5rem;
+      line-height: 1.2;
+      margin: 2rem 0;
+
+      @media (max-width: 500px) {
+        font-size: 4rem;
+      }
+    }
+
+    p {
+      color: #555;
+      font-size: 1.8rem;
+      font-weight: 500;
+      line-height: 1.6;
+
+      @media (max-width: 900px) {
+        margin-bottom: 5rem;
+      }
+    }
+
+    span {
+      display: flex;
+      cursor: pointer;
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+
+      @media (max-width: 900px) {
+        gap: 1.5rem;
+        margin-bottom: 4rem;
+        margin-top: -2rem;
+        justify-content: center;
+      }
+
+      a {
+        color: #2d2e32;
+        font-size: 4rem;
+      }
+
+      i {
+        transition: all 0.7s;
+      }
+
+      i:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  .hero-img {
+    background-size: cover;
+    border: 3.3px solid #2d2e32;
+    height: 35rem;
+    width: 35rem;
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(187, 187, 187, 0.562);
+
+    .default-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: opacity 5s;
+    }
+
+    @media (max-width: 500px) {
+      height: 28rem;
+      width: 28rem;
+    }
+
+    .hover-image {
+      opacity: 0;
+    }
+
+    &:hover .default-image {
+      opacity: 1;
+    }
+
+    &:hover .hover-image {
+      opacity: 0.1;
+    }
+  }
+
+  .skills {
+    display: flex;
+    align-items: center;
+    bottom: 0;
+    left: 0;
+    color: #767676;
+    font-size: 1.7rem;
+    position: absolute;
+
+    @media (max-width: 900px) {
+      flex-direction: column;
+      position: static;
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      list-style: none;
+
+      @media (max-width: 900px) {
+        justify-content: center;
+      }
+
+      li {
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 7rem;
+        width: 7rem;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        border-radius: 25%;
+        cursor: pointer;
+        transition: all 1s;
+        position: relative;
+
+        img {
+          height: 4rem;
+          width: 4rem;
+        }
+      }
+
+      li:hover {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+      }
+    }
+
+    p {
+      border-right: 2px solid rgba(45, 46, 50, 0.5);
+      color: #2d2e32;
+      font-weight: 600;
+      font-size: 2.5rem;
+      margin-right: 7rem;
+      padding-right: 2rem;
+
+      @media (max-width: 900px) {
+        border-bottom: 2px solid rgba(45, 46, 50, 0.5);
+        border-right: none;
+        margin-bottom: 3.3rem;
+        margin-right: 0;
+        padding-bottom: 1rem;
+        padding-right: 0;
+      }
+    }
+  }
+
+  &.dark-mode {
+    background-color: #222222;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
+    transition: background-color 0.5s, color 0.5s;
+
+    .container {
+      .hero-main {
+        h1,
+        p,
+        i {
+          color: #dde0e7;
+        }
+      }
+      .skills {
+        p {
+          color: #f3f3f3;
+          border-right: 2px solid rgba(256, 256, 256, 0.5);
+
+          @media (max-width: 900px) {
+            border-bottom: 2px solid rgba(256, 256, 256, 0.5);
+            border-right: none;
+            margin-bottom: 3.3rem;
+            margin-right: 0;
+            padding-bottom: 1rem;
+            padding-right: 0;
+          }
+        }
+
+        li {
+          background-color: #333333;
+          box-shadow: 0 0 10px rgba(256, 256, 256, 0.2);
+
+          &:hover {
+            box-shadow: 0 0 10px rgba(256, 256, 256, 0.5);
+          }
+        }
+      }
+    }
+  }
+}

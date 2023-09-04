@@ -7,19 +7,61 @@ import img5 from "../img/ts.png";
 import img6 from "../img/sass.png";
 import portrait from "../img/portrait.png";
 import "../dist/styles.css";
+import { useLanguage } from "./LanguageProvider";
 
 const Hero = ({ isDarkMode }) => {
+  const { currentLanguage } = useLanguage();
+
+  const text = {
+    ua: {
+      title: "Front-End React Developer",
+      description: (
+        <>
+          Привiт!
+          <br />
+          Мене звати Максим Фартушко, 22 роки, i я
+          <br />
+          Front-end React розробник з Харкова, Україна
+        </>
+      ),
+    },
+    en: {
+      title: "Front-End React Developer",
+      description: (
+        <>
+          Hello!
+          <br />
+          My name is Maxim Fartushko. I'm 22 y.o.
+          <br />
+          I'm front-end React developer from Kharkiv, Ukraine
+        </>
+      ),
+    },
+    ru: {
+      title: "Front-End React Developer",
+      description: (
+        <>
+          Привет!
+          <br />
+          Меня зовут Максим Фартушко, мне 22, и я
+          <br />
+          front-end React разработчик из Харькова, Украина
+        </>
+      ),
+    },
+  };
+
   return (
-    <div id="home" className={`hero ${isDarkMode ? "dark-mode" : "light-mode"}`}>
+    <div
+      id="home"
+      className={`hero ${isDarkMode ? "dark-mode" : "light-mode"}`}
+    >
       <div className="container">
         <div className="content">
           <div className="hero-main">
             <div className="hero-text">
-              <h1>Front-End React Developer</h1>
-              <p>
-                Hi, I'm Maxim Fartushko. Front-end React Developer based in
-                Kharkiv, Ukraine.
-              </p>
+              <h1>{text[currentLanguage].title}</h1>
+              <p>{text[currentLanguage].description}</p>
               <span>
                 <a
                   aria-label="github"

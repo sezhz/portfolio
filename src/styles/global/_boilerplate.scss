@@ -1,6 +1,3 @@
-@use "./colors" as *;
-@use "./typography" as *;
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -14,7 +11,7 @@ html {
 
 body {
   background-color: #fff;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Roboto Slab', serif;
   position: relative;
 }
 

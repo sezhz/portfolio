@@ -5,6 +5,7 @@ import About from "./components/About";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import { LanguageProvider } from "./components/LanguageProvider";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -14,14 +15,14 @@ function App() {
   };
 
   return (
-    <>
+    <LanguageProvider>
       <Navigation isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
       <Hero isDarkMode={isDarkMode} />
       <About isDarkMode={isDarkMode} />
       <Projects isDarkMode={isDarkMode} />
       <Contact isDarkMode={isDarkMode} />
       <Footer isDarkMode={isDarkMode} />
-    </>
+    </LanguageProvider>
   );
 }
 

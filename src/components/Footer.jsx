@@ -9,15 +9,17 @@ const Footer = ({ isDarkMode }) => {
           <div className="footer__socials">
             <a
               aria-label="github"
-              rel="norefferer"
               href="https://github.com/sezhz"
+              target="_blank"
+              rel="noreferrer"
             >
               <i className="fa-brands fa-github"></i>
             </a>
             <a
               aria-label="github"
-              rel="norefferer"
               href="https://discordapp.com/users/310448570828324865/"
+              target="_blank"
+              rel="noreferrer"
             >
               <i className="fa-brands fa-discord"></i>
             </a>

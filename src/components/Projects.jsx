@@ -1,129 +1,206 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-import pic1 from "../img/pizza.png";
-import pic2 from "../img/furniture2.png";
-import pic3 from "../img/pizza.png";
+import pic1 from "../img/twopizza.png";
+import pic2 from "../img/travel-agency.png";
+import pic3 from "../img/furniture-ecommerce.png";
+import { useLanguage } from "./LanguageProvider";
 
 const Projects = ({ isDarkMode }) => {
-  const [isImageSticky, setImageSticky] = useState(false);
-  const [currentImage, setCurrentImage] = useState(pic1);
-  const [currentLink, setCurrentLink] = useState(
-    "https://twopizza-delta.vercel.app"
-  );
-  const [isFading, setIsFading] = useState(false);
+  const { currentLanguage } = useLanguage();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const imgElement = document.querySelector(".img-block");
-      const containerElement = document.querySelector(".container");
+  const text = {
+    ua: {
+      title1: "twoPizza",
+      description1:
+        "Веб-додаток для піцерії з онлайн-замовленням та доставкою. Користувачі можуть легко обрати піцу з різноманітного меню та швидко оформити замовлення з доставкою до дому",
+      title2: (
+        <>
+          ` exotic skyline `
+          <br />
+          travel agency
+        </>
+      ),
+      description2:
+        "Веб-сайт туристичного агентства, який надає клієнтам унікальний досвід відпочинку та залишає незабутні враження",
+      title3: (
+        <>
+          furniture e-commerce
+          <br />` meblevo `
+        </>
+      ),
+      description3:
+        "Mebelio - це сучасний інтернет-магазин меблів, створений з використанням технології React. Зручний вибiр та придбання меблів для дому та офісу завдяки інтуїтивно зрозумілому інтерфейсу",
+      title: "Портфолiо",
+    },
 
-      if (imgElement && containerElement) {
-        const imgRect = imgElement.getBoundingClientRect();
-        const containerRect = containerElement.getBoundingClientRect();
-        const centerY = window.innerHeight / 2;
+    en: {
+      title1: "twoPizza",
+      description1:
+        "Web application for a pizzeria with online ordering and delivery. Users can easily select pizza from a diverse menu and quickly place an order for home delivery",
+      title2: (
+        <>
+          ` exotic skyline `
+          <br />
+          travel agency
+        </>
+      ),
+      description2:
+        "This project is a site for a travel agency that offers clients a unique holiday experience, leaving unforgettable memories",
+      title3: (
+        <>
+          furniture e-commerce
+          <br />` meblevo `
+        </>
+      ),
+      description3:
+        "Mebelio is a modern furniture online store built with React. Our users can effortlessly browse and purchase furniture for their homes and offices, thanks to our user-friendly interface",
+      title: "Portfolio",
+    },
 
-        const imgCenterY = imgRect.top + imgRect.height / 2;
-
-        if (!isImageSticky && imgCenterY <= centerY) {
-          setImageSticky(true);
-        } else if (isImageSticky && imgCenterY < containerRect.top) {
-          setImageSticky(false);
-        } else if (isImageSticky && imgRect.bottom > containerRect.bottom) {
-          setImageSticky(true);
-        }
-
-        const blocks = document.querySelectorAll(".big-block");
-        if (blocks) {
-          const secondBlock = blocks[1];
-          const thirdBlock = blocks[2];
-
-          if (
-            imgCenterY >= secondBlock.getBoundingClientRect().top &&
-            imgCenterY < secondBlock.getBoundingClientRect().bottom
-          ) {
-            changeImage(pic2, "https://furniture-ecommerce-sand.vercel.app/", "_blank");
-          } else if (
-            imgCenterY >= thirdBlock.getBoundingClientRect().top &&
-            imgCenterY < thirdBlock.getBoundingClientRect().bottom
-          ) {
-            changeImage(pic3, "https://twopizza-delta.vercel.app", "_blank");
-          } else {
-            changeImage(pic1, "https://twopizza-delta.vercel.app", "_blank");
-          }
-        }
-      }
-    };
-
-    const changeImage = (newImage, newLink) => {
-      if (currentImage !== newImage || currentLink !== newLink) {
-        setIsFading(true);
-        setTimeout(() => {
-          setIsFading(false);
-          setCurrentImage(newImage);
-          setCurrentLink(newLink);
-        }, 80);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [currentImage, isImageSticky, currentLink]);
+    ru: {
+      title1: "twoPizza",
+      description1:
+        "Веб-приложение для пиццерии с онлайн-заказом и доставкой. Пользователи могут легко выбрать пиццу из разнообразного меню и быстро оформить заказ с доставкой на дом",
+      title2: (
+        <>
+          ` exotic skyline `
+          <br />
+          travel agency
+        </>
+      ),
+      description2:
+        "Веб-сайт туристического агентства, который предоставляет клиентам уникальные возможности планирования путешествий по всему миру",
+      title3: (
+        <>
+          furniture e-commerce
+          <br />` meblevo `
+        </>
+      ),
+      description3:
+        "Mebelio - это интернет-магазин мебели, созданный на React. Комфортный выбор и приобретение мебели для дома, благодаря интуитивно понятному интерфейсу",
+      title: "Портфолио",
+    },
+  };
 
   return (
-    <div id="projects" className={`projects ${isDarkMode ? "dark-mode" : "light-mode"}`}>
+    <div
+      id="projects"
+      className={`projects ${isDarkMode ? "dark-mode" : "light-mode"}`}
+    >
       <div className="container">
         <div className="content">
-          <div className="text-side">
-            <div className="big-block">
-              <div className="block">
-                <h2 className="text-block">
-                  Share your Calendly
-                  <br />
-                  availability with others
-                </h2>
+          <h3>{text[currentLanguage].title}</h3>
+          <div className="project-grid">
+            <div className="project">
+              <div className="project-img">
+                <a
+                  href="https://twopizza-delta.vercel.app/pizza"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img className="twopizza" src={pic1} alt="pizza-delivery" />
+                </a>
               </div>
-              <p className="mini-text-block">
-                Grow your business with scheduling automation. Simply email,
-                text, or add your Calendly availability to your website – and
-                watch prospects and recruits book high-value meetings with you.
-              </p>
-              <a href="https://twopizza-delta.vercel.app">
-                <img className="static-img" src={pic1} alt="pic1" />
-              </a>
-            </div>
-            <div className="big-block">
-              <div className="block">
-                <h2 className="text-block">Schedule as a team</h2>
+              <div className="project-txt">
+                <h3>{text[currentLanguage].title1}</h3>
+                <p>{text[currentLanguage].description1}</p>
+                <div className="tech">
+                  <p>React</p>
+                  <p>SCSS</p>
+                </div>
+                <div className="links">
+                  <a
+                    href="https://github.com/sezhz/twopizza"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Code<i class="fa-brands fa-github"></i>
+                  </a>
+                  <a
+                    href="https://twopizza-delta.vercel.app/pizza"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Link<i class="fa-solid fa-up-right-from-square"></i>
+                  </a>
+                </div>
               </div>
-              <p className="mini-text-block">
-                Calendly adapts to both you and your team's scheduling
-                preferences. Co-host a client call with a colleague, email
-                reminders and follow-ups, and integrate everything with your
-                preferred software tools.
-              </p>
-              <a href="https://furniture-ecommerce-sand.vercel.app/">
-                <img className="static-img" src={pic2} alt="pic2" />
-              </a>
             </div>
-            <div className="big-block">
-              <div className="block">
-                <h2 className="text-block">Hit your number</h2>
+
+            <div className="project reversed">
+              <div className="project-img">
+                <a
+                  href="https://travel-agency-ashen.vercel.app/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img src={pic2} alt="travel-agency" />
+                </a>
               </div>
-              <p className="mini-text-block">
-                High-value meetings are the lifeblood of your business. Increase
-                revenue, retain customers, and land recruits with the #1
-                scheduling automation platform.
-              </p>
-              <img className="static-img" src={pic3} alt="pic3" />
+              <div className="project-txt">
+                <h3>{text[currentLanguage].title2}</h3>
+                <p>{text[currentLanguage].description2}</p>
+                <div className="tech">
+                  <p>React</p>
+                  <p>SCSS</p>
+                </div>
+                <div className="links">
+                  <a
+                    href="https://github.com/sezhz/travel-agency"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Code<i class="fa-brands fa-github"></i>
+                  </a>
+                  <a
+                    href="https://travel-agency-ashen.vercel.app/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Link<i class="fa-solid fa-up-right-from-square"></i>
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>
-          <div className={`img-side ${isImageSticky ? "sticky" : ""}`}>
-            <div className={`img-block ${isFading ? "fade-out" : "fade-in"}`}>
-              <a href={currentLink}>
-                <img className="img" src={currentImage} alt="pic" />
-              </a>
+
+            <div className="project">
+              <div className="project-img">
+                <a
+                  href="https://furniture-ecommerce-sand.vercel.app/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img
+                    className="furniture-shop"
+                    src={pic3}
+                    alt="furniture-e-commerce"
+                  />
+                </a>
+              </div>
+              <div className="project-txt">
+                <h3>{text[currentLanguage].title3}</h3>
+                <p>{text[currentLanguage].description3}</p>
+                <div className="tech">
+                  <p>React</p>
+                  <p>Vanila CSS</p>
+                </div>
+                <div className="links">
+                  <a
+                    href="https://github.com/sezhz/furniture-ecommerce"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Code<i class="fa-brands fa-github"></i>
+                  </a>
+                  <a
+                    href="https://furniture-ecommerce-sand.vercel.app/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Link<i class="fa-solid fa-up-right-from-square"></i>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>

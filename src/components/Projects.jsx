@@ -30,7 +30,7 @@ const Projects = ({ isDarkMode }) => {
       ),
       description3:
         "Mebelio - це сучасний інтернет-магазин меблів, створений з використанням технології React. Зручний вибiр та придбання меблів для дому та офісу завдяки інтуїтивно зрозумілому інтерфейсу",
-      title: "Портфолiо",
+      title: "Проекти",
     },
 
     en: {
@@ -54,7 +54,7 @@ const Projects = ({ isDarkMode }) => {
       ),
       description3:
         "Mebelio is a modern furniture online store built with React. Our users can effortlessly browse and purchase furniture for their homes and offices, thanks to our user-friendly interface",
-      title: "Portfolio",
+      title: "Projects",
     },
 
     ru: {
@@ -78,7 +78,7 @@ const Projects = ({ isDarkMode }) => {
       ),
       description3:
         "Mebelio - это интернет-магазин мебели, созданный на React. Комфортный выбор и приобретение мебели для дома, благодаря интуитивно понятному интерфейсу",
-      title: "Портфолио",
+      title: "Проекты",
     },
   };
 

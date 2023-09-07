@@ -406,12 +406,6 @@ body {
   height: auto;
   width: 100%;
 }
-@media (max-width: 700px) {
-  .projects .content .project-grid {
-    width: 100%;
-    align-items: center;
-  }
-}
 .projects .content .project-grid .project {
   border-radius: 1.7rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -420,9 +414,32 @@ body {
   gap: 8rem;
   height: 40rem;
   padding: 2rem;
+  overflow: hidden;
+}
+@media (max-width: 400px) {
+  .projects .content .project-grid .project {
+    width: 100%;
+  }
+}
+@media (max-width: 1020px) {
+  .projects .content .project-grid .project {
+    flex-direction: column !important;
+    height: 75rem;
+    margin: 0 auto;
+    gap: 3rem;
+    max-width: 350px !important;
+  }
 }
 .projects .content .project-grid .project.reversed {
   flex-direction: row-reverse !important;
+}
+@media (max-width: 1020px) {
+  .projects .content .project-grid .project.reversed {
+    flex-direction: column !important;
+    height: 75rem;
+    margin: 0 auto;
+    gap: 3rem;
+  }
 }
 .projects .content .project-grid .project.reversed .project-img {
   background-color: hsla(0, 0%, 46%, 0.2);
@@ -431,6 +448,13 @@ body {
   width: 50rem;
   border-radius: 5%;
   overflow: hidden;
+}
+@media (max-width: 768px) {
+  .projects .content .project-grid .project.reversed .project-img {
+    width: calc(100% - 4rem);
+    max-width: 100%;
+    margin: 0 auto;
+  }
 }
 .projects .content .project-grid .project.reversed .project-img a img {
   width: 100%;
@@ -448,6 +472,7 @@ body {
   width: 50rem;
   border-radius: 5%;
   overflow: hidden;
+  max-width: 100%;
 }
 .projects .content .project-grid .project .project-img a .twopizza,
 .projects .content .project-grid .project .project-img a .furniture-shop {
@@ -455,6 +480,14 @@ body {
   height: auto;
   transform: translateY(0%);
   transition: transform 3s ease-in-out 0s;
+}
+@media (max-width: 768px) {
+  .projects .content .project-grid .project .project-img a .twopizza,
+  .projects .content .project-grid .project .project-img a .furniture-shop {
+    max-width: 350px;
+    margin: 0;
+    padding: 0;
+  }
 }
 .projects .content .project-grid .project .project-img a .twopizza:hover,
 .projects .content .project-grid .project .project-img a .furniture-shop:hover {

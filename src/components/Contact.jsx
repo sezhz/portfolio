@@ -1,5 +1,8 @@
 import React from "react";
 import { useLanguage } from "./LanguageProvider";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMap } from "@fortawesome/free-solid-svg-icons";
+import { faTelegramPlane } from "@fortawesome/free-brands-svg-icons";
 
 const Contact = ({ isDarkMode }) => {
   const { currentLanguage } = useLanguage();
@@ -15,8 +18,8 @@ const Contact = ({ isDarkMode }) => {
 
     ru: {
       title: "Хорошего дня!",
-    }
-  }
+    },
+  };
 
   return (
     <div
@@ -31,7 +34,9 @@ const Contact = ({ isDarkMode }) => {
           <div className="contact__icons">
             <div className="contact__icon-box">
               <span>
-                <i className="fa-solid fa-map-location-dot"> </i>
+                <i className="fa-solid fa-map-location-dot">
+                  <FontAwesomeIcon icon={faMap} />
+                </i>
               </span>
               <div className="contact__info">
                 <h3>Location</h3>
@@ -40,7 +45,7 @@ const Contact = ({ isDarkMode }) => {
             </div>
             <div className="contact__icon-box">
               <span>
-                <i className="fa-solid fa-envelope-open-text"> </i>
+                <i className="fa-solid fa-envelope-open-text"> <FontAwesomeIcon icon={faTelegramPlane} /> </i>
               </span>
               <div className="contact__info">
                 <h3>Telegram</h3>

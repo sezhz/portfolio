@@ -5,17 +5,17 @@ const About = ({ isDarkMode }) => {
   const { currentLanguage } = useLanguage();
 
   const text = {
-    ua: {
-      title:
-        "Починаючий Front-end розробник з великими амбіціями з Харкова, Україна.",
-      description:
-        "Хороше знання HTML, CSS, JavaScript, React та SCSS. Створюю зручні та адаптивні сайти, використовуючи сучасні технології. У мене поки що немає досвіду комерційного програмування, але я постійно пишу і вивчаю щось нове. У розробці я користуюсь актуальними бібліотеками та фреймворками, намагаючись робити це максимально ефективно, для зручного, оптимізованого та чистого коду. Мені подобається вивчати нові технології та ставати більш різностороннiм",
-    },
     en: {
       title:
         "Beginning Front-end developer with big ambitions from Kharkiv, Ukraine",
       description:
         "Good knowledge of HTML, CSS, JavaScript, React and SCSS. I create convenient and adaptive websites using modern technologies. I don't have any commercial programming experience yet, but I'm constantly writing and learning new things. In development, I use up-to-date libraries and frameworks, trying to do it as efficiently as possible, for convenient, optimized and clean code. I like learning new technologies and becoming more versatile",
+    },
+    ua: {
+      title:
+        "Починаючий Front-end розробник з великими амбіціями з Харкова, Україна.",
+      description:
+        "Хороше знання HTML, CSS, JavaScript, React та SCSS. Створюю зручні та адаптивні сайти, використовуючи сучасні технології. У мене поки що немає досвіду комерційного програмування, але я постійно пишу і вивчаю щось нове. У розробці я користуюсь актуальними бібліотеками та фреймворками, намагаючись робити це максимально ефективно, для зручного, оптимізованого та чистого коду. Мені подобається вивчати нові технології та ставати більш різностороннiм",
     },
     ru: {
       title:

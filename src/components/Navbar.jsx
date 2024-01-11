@@ -3,6 +3,8 @@ import { useLanguage } from "./LanguageProvider";
 import uaFlag from "../img/ukraine-flag.png";
 import usaFlag from "../img/usa-flag.png";
 import erefiaFlag from "../img/erefia-flag.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = ({ toggleMenu, isDarkMode, toggleDarkMode }) => {
   const { currentLanguage, changeLanguage } = useLanguage();
@@ -10,11 +12,11 @@ const Navbar = ({ toggleMenu, isDarkMode, toggleDarkMode }) => {
   const toggleLanguage = () => {
     let newLanguage = "";
     if (currentLanguage === "ua") {
-      newLanguage = "en";
-    } else if (currentLanguage === "en") {
       newLanguage = "ru";
-    } else {
+    } else if (currentLanguage === "en") {
       newLanguage = "ua";
+    } else {
+      newLanguage = "en";
     }
     changeLanguage(newLanguage);
   };
@@ -25,12 +27,12 @@ const Navbar = ({ toggleMenu, isDarkMode, toggleDarkMode }) => {
       <ul>
         <li>
           <button onClick={toggleLanguage}>
-            {currentLanguage === "ua" ? (
-              <img src={uaFlag} alt="Українська" />
-            ) : currentLanguage === "en" ? (
+            {currentLanguage === "en" ? (
               <img src={usaFlag} alt="English" />
+            ) : currentLanguage === "ua" ? (
+              <img src={uaFlag} alt="Українська" />
             ) : (
-              <img src={erefiaFlag} alt="Erefia" />
+              <img src={erefiaFlag} alt="rf" />
             )}
           </button>
         </li>
@@ -55,9 +57,13 @@ const Navbar = ({ toggleMenu, isDarkMode, toggleDarkMode }) => {
         <li>
           <button onClick={toggleDarkMode}>
             {isDarkMode ? (
-              <i class="fa-solid fa-sun"></i>
+              <i className="fa-solid fa-sun">
+                <FontAwesomeIcon icon={faSun} />
+              </i>
             ) : (
-              <i class="fa-solid fa-moon"></i>
+              <i className="fa-solid fa-moon">
+                <FontAwesomeIcon icon={faMoon} />
+              </i>
             )}
           </button>
         </li>
